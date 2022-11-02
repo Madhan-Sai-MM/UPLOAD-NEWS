@@ -1,0 +1,86 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Upload any news">
+    <meta name="author" content="upload any news">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+    #btn1
+    {
+        border: 5px solid black;
+        border-radius: 22px;
+        background-color: white;
+        color: crimson;
+        font-weight: bold;
+    }
+    #btn1:hover
+    {
+        background-color: black;
+        color: white;
+        font-weight: bolder;
+     }
+</style>
+
+
+  </head>
+<body>
+<center>
+<div class="jumbotron text-center">
+<h1><kbd>ENTER ANDHRA NEWS</kbd></h1> 
+    <h1><kbd>BELOW</kbd></h1>
+</div>
+</center>
+
+<center>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+
+        <tr style="height: 30px;">
+            <td><kbd><b style="font-size: larger;">SELECT DISTRICT</b></kbd></td>
+            <td>{{ form.status }}</td>
+        </tr>
+
+        <tr style="height: 30px;">
+            <td><kbd><b style="font-size: larger;">ADD AREA</b></kbd></td>
+            <td>{{ form.place }}</td>
+        </tr>
+
+        <tr style="height: 30px;">
+            <td><kbd><b style="font-size: larger;">ENTER NEWS</b></kbd></td>
+            <td>{{ form.news }}</td>
+            <br><br>
+        </tr>
+
+        <tr style="height: 30px;">
+            <td><kbd><b style="font-size: larger;">ADD IMAGE</b></kbd></td>   
+            <td>{{ form.add_image }}</td>
+        </tr>
+        
+        <tr style="height: 30px;">
+            <td><kbd><b style="font-size: larger;">ADD VIDEO</b></kbd></td>
+            <td>{{ form.video }}</td>
+        </tr>
+        <br><br>
+        <tr style="height: 30px;">
+            <td><input type="submit" value="SAVE THE NEWS" id="btn1"></td>
+        </tr>
+    </table>
+</form>
+
+<br/><br/>
+<h4><mark>NOTE:</mark> <b>IF YOU HAVE <mark>NO VIDEO</mark>,</h4>
+     <h4>THEN <mark>UPLOAD A IMAGE IN</b></mark> <kbd>ADD VIDEO</kbd></h4>
+</center>
+<br><br>
+<center><b style="color: blue;">BE, THE FIRST PERSON TO UPLOAD BEST NEWS</b></center>
+<br><br><br><br><br>
+<footer style="color: white;background-color: lightslategray;text-align: center;">
+    <p><b style="color: black;">UPLOAD ANY NEWS</b>, Developed By <b>MADHAN.KS</b></a></p>
+    <p>For Details & Contact : <a href = "mailto:itsmadhan98@gmail.com" target= "blank"> <b style="color: crimson;">send an E-MAIL</b> </a></p> 
+</footer>
+</body>
+</html>

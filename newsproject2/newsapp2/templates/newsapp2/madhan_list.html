@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Upload any news">
+  <meta name="author" content="upload any news">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    .img1 {
+        height: 260px;
+        width: 350px;
+    }
+    .aa
+    {
+      border: 5px solid blue;
+    }
+    #telugu
+    {
+      border: 2px solid white;
+      color: white;
+      background-color: black;
+      width: 250px;
+      border-radius: 22px;
+    }
+</style>
+</head>
+<body>
+  <img src="{% static "newsapp2/uanlogo.png" %}" alt="UAN LOGO" height="250px" width="100%" />
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'policy' %}">PRIVACY-POLICY</a></li>
+        <li><a href="{% url 'termsandconditions' %}">TERMS & CONDITIONS</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="jumbotron text-center">
+    <h2><kbd>UPLOAD - ANY - ANDHRA - NEWS</kbd></h2>
+    <br><br>
+    <mark><b>click the below link to upload news</b></mark>
+    <br>
+    <a href="{% url 'mm_new' %}"><b style="font-size: larger;">CLICK HERE, TO UPLOAD ANDHRA NEWS</b></a><br><br>
+    <br><br>
+    <marquee behavior="alternate"><b id="telugu" style="font-size: x-large;">.....మీరు తెలుగులో వార్తలను అప్‌లోడ్ చేయవచ్చు.....</b></h2></marquee>
+    </div>
+    
+<center><b class="aa" style="font-size: larger;" >READ <mark>ANDHRA-STATE DISTRICTS NEWS</mark> BY CLICKING BELOW <kbd>READ NEWS</kbd> LINKS</b></center>
+ <br><br>
+<center>
+<table style="border: border-collapse">
+  
+  {% for mm in object_list %}
+  <div class="col-md-4">
+    <mark><b>CLICK THE BELOW LINK TO READ THE NEWS</b></mark>
+    <div class="card my-2">
+        <img class="img1" src="{{mm.add_image.url}}" alt="mm">
+        <div class="card-body"> 
+          <b>Uploaded Date/Time :</b> {{ mm.created_on }}  
+            <p> <kbd><b>DIST:</b></kbd> <b style="font-size: x-large;">{{ mm.get_status_display }}</b>
+            <p> <kbd><b>AREA:</b></kbd> <b style="font-size: x-large;">{{ mm.place }}</b>  
+            <a href="{% url 'mm_detail' mm.id %}"><h4><b>|READ NEWS|</b></h4></a>
+            ----------------------------------------------------------------------
+        </div> 
+    </div> 
+</div>     
+  {% empty %}
+  <tr><td colspan="5"><b>UPLOAD ANDHRAPRADESH NEWS DATA</b></td></tr>
+  {% endfor %}
+</table>
+</center>
+</body>
+</html>
+
+
+      

@@ -1,0 +1,53 @@
+{% load social_share %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Upload any news">
+    <meta name="author" content="upload any news">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+
+<body>
+  
+<center>
+<div class="jumbotron text-center">    
+<marquee behavior=alternate><h1><kbd>ANDHRA NEWS</kbd></h1></marquee>
+</div>
+<b style="color: blue;">YOU CAN <mark>SHARE THIS NEWS</mark> BY CLICKING, BELOW LINKS</b>
+
+<b>{% post_to_twitter "{{mm_detail}}" object_or_url "Post to Twitter" %}</b>
+<i class="fab fa-twitter"></i>
+---------------------------------
+<b>{% post_to_whatsapp "{{mm_detail}}" object_or_url "Post to Whatsapp" %}</b>
+<i class="fab fa-whatsapp"></i>
+---------------------------------
+<b>{% post_to_facebook "{{mm_detail}}" object_or_url "Post to Facebook" %}</b>
+<i class="fab fa-facebook"></i>
+---------------------------------
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"/>
+
+<br>
+<h2><kbd><b>DISTRICT</b></kbd> : <b>{{ object.status }}</b></h2>
+<hr>
+<h2><kbd><b>AREA</b></kbd> : <b>{{ object.place }}</b></h2>
+<hr>
+<h2><kbd><b>NEWS</b></kbd> : {{ object.news }}</h2>
+<hr>
+<h2><kbd><b>RELATED IMAGE</b></kbd> : </h2>
+<img style="width:370px; max-height: 400px;" src="{{object.add_image.url}}">
+<hr>
+<h2><kbd><b>RELATED VIDEO</b></kbd> : </h2>
+<video controls width="370px" height="400px">
+<source src="{{object.video.url}}" type="video/mp4">
+</video>
+<hr>
+</center>
+<footer style="color: white;background-color: lightslategray;text-align: center;">
+  <p><b style="color: black;">UPLOAD ANY NEWS</b>, Developed By <b>MADHAN.KS</b></a></p>
+  <p>For Details & Contact : <a href = "mailto:itsmadhan98@gmail.com" target= "blank"> <b style="color: crimson;">send an E-MAIL</b> </a></p> 
+</footer>
+</body>
+</html>
